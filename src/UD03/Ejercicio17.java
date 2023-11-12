@@ -1,9 +1,8 @@
 package UD03;
 
-import java.util.Scanner;
 public class Ejercicio17 {
 
-    public static double calcularCoste(String libros, String revista, double precioIndividual, int cantidadLibros, int cantidadRevistas){
+    /*public static double calcularCoste(String libros, String revista, double precioIndividual, int cantidadLibros, int cantidadRevistas){
 
         if (cantidadLibros > 1 && cantidadLibros <= 5) {
             double precio = cantidadLibros *precioIndividual;
@@ -69,5 +68,5 @@ public class Ejercicio17 {
         System.out.println("El precio es: "+calcularCoste(null, null, x, x, x));
 
         entrada.close();
-    }
+    }*/
 }
