@@ -7,6 +7,7 @@ public class Ejercicio31 {
         int dia, numBultos, peso=0;
         double precio=0.0;
         
+        
 
         
         do {
@@ -20,7 +21,7 @@ public class Ejercicio31 {
         } while (numBultos<0 || numBultos>=30);
 
         for (int i=1; i<=numBultos; i++) {
-            System.out.println("Introduce el peso del paquete "+1+": ");
+            System.out.print("Introduce el peso del paquete "+i+": ");
             peso += entrada.nextInt();
             if (peso>1000) {
                 System.out.println("no se puede transportar más de 1000kg");
@@ -37,7 +38,7 @@ public class Ejercicio31 {
         }
 
         System.out.println("el precio final es: &.2f$\n"+precio);
-        
         entrada.close();
+
     }
 }
