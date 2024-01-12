@@ -10,19 +10,17 @@ public class dosArrays07 {
     }
 
     public static double[] sumaArraysIguales (double[] a, double[] b){
+        double[] suma = new double[a.length];
+        
         for (int i = 0; i < a.length; i++) {
-            
+            suma[i] = a[i] + b[i];
         }
-        return sumaArraysIguales(a, b);
+        return suma;
     }
     public static void main(String[] args) {
         Scanner tec = new Scanner(System.in);
-        // System.out.println("Introduce la longitud de las arrays que quieras sumar: ");
-        // int longitudArray = tec.nextInt();
-
-        // do {
-        //     System.out.println("Introduce la array");
-        // } while ();
+        
+        sumaArraysIguales(null, null);
         tec.close();
     }
 }

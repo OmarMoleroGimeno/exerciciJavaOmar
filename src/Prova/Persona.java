@@ -24,7 +24,7 @@ public class Persona {
 
     public void setEdad(int edad) {
         this.edad = edad;
-    } 
+    }
 
     public String getDni() {
         return this.dni;
@@ -110,17 +110,16 @@ public class Persona {
 
     public String toString(){
 
-        System.out.println("+--------------------------");
-        System.out.println("| Persona");
-        System.out.println("|");
-        System.out.println("|nombre: " + getNombre());
-        System.out.println("|edad: " + getEdad());
-        System.out.println("|dni: "+ getDni());
-        System.out.println("|sexo: "+ getSexo());
-        System.out.println("|peso: "+ getPeso() + "Kg");
-        System.out.println("|altura: "+ getAltura() + " Metros");
-        System.out.println("+--------------------------");
-        return null;
+        return "\n+--------------------------"+
+                "\n| Persona\t"+
+                "\n|\t"+
+                "\n|nombre:\t " + getNombre()+
+                "\n|edad:\t " + getEdad()+
+                "\n|dni:\t "+ getDni()+
+                "\n|sexo:\t "+ getSexo()+
+                "\n|peso:\t "+ getPeso() + "Kg"+
+                "\n|altura:\t "+ getAltura() + " Metros"+
+                "\n+--------------------------";
     }
 
     public static void main(String[] args) {
@@ -149,6 +148,7 @@ public class Persona {
         peso = entrada.nextDouble();
         System.out.println("Introduce la altura de la persona3 (m):");
         altura = entrada.nextDouble();
+        entrada.close();
 
         Persona p3 = new Persona(nombre, edad, dni, sexo, peso, altura);
 
