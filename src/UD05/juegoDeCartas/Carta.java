@@ -16,7 +16,7 @@ public class Carta {
 
     public Carta(int palo, int valor) throws IllegalArgumentException{
         if (palo < 0 || palo > 3 || valor < 1 || valor > 12) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Los datos introducidos són incorrectos.");
         } else {
             this.palo = palo;
             this.valor = valor;
@@ -37,13 +37,6 @@ public class Carta {
 
     public void setPalo(int palo) {
         this.palo = palo;
-    }
-
-
-    static class IllegalArgumentException extends Exception{
-        public IllegalArgumentException(){
-            super("Los datos introducidos són incorrectos.");
-        }
     }
 
     public int compareTo(Carta carta){
