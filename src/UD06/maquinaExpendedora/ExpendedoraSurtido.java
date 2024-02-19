@@ -1,19 +1,23 @@
 package UD06.maquinaExpendedora;
 
-public class Expendedora {
+import java.io.FileNotFoundException;
+
+public class ExpendedoraSurtido {
 
     private double credito;
-    private int stock;
-    private double precio;
     private double cambio;
     private double recaudacion;
+    private Surtido surtido;
 
-    public Expendedora (double cambio, int stock, double precio){
+    public ExpendedoraSurtido (double cambio){
         this.cambio = cambio;
-        this.stock = stock;
-        this.precio = precio;
         this.recaudacion = 0;
         this.credito = 0;
+        try {
+            this.surtido = new Surtido();
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public double getCreditos() {
@@ -24,17 +28,13 @@ public class Expendedora {
         this.credito = creditos;
     }
 
-    public int getStock() {
-        return this.stock;
+    public int getStock(int producto) {
+        return this.surtido.getProducto(producto).getStock();
     }
 
 
     public double getPrecio(int producto) {
-        return this.precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
+        return this.surtido.getProducto(producto).getPrecio();
     }
 
     public double getCambio() {
@@ -65,20 +65,27 @@ public class Expendedora {
 
     @Override
     public String toString() {
-        return  "Crédito: " + this.getCreditos() +
-                "\nCámbio: " + this.getCambio() +
-                "\nStock: " + this.getStock() +
-                "\nRecaudación: " + this.getRecaudacion();
+        String str = "";
+        str +=  "Crédito: " + this.getCreditos() +
+                "\nCambio: " + this.getCambio() +
+                "\nRecaudación: " + this.getRecaudacion() +
+                "\nProductos:\n ";
+        for (int i = 1; i <= this.surtido.numProductos(); i++) {
+            str +=  "\n Nombre: " + this.surtido.getProducto(i).getNombre() +
+                    "\n  Precio: " + this.surtido.getProducto(i).getPrecio() +
+                    "\n  Stock: " + this.surtido.getProducto(i).getStock() + "\n";
+        }
+        return str;
     }
 
     public double comprarProducto(int producto) throws NoHayCambioException, NoHayProductoException, CreditoInsuficienteException{
         
-        if (this.stock > 0) {
+        if (this.surtido.getProducto(producto).getStock() > 0) {
             if (this.credito <= this.getPrecio(producto)) {
-                if ((this.credito - this.precio) <= this.cambio) {
-                    this.stock --;
-                    this.recaudacion += this.precio;
-                    double devolucion = this.credito - this.precio;
+                if ((this.credito - this.surtido.getProducto(producto).getPrecio()) <= this.cambio) {
+                    this.surtido.getProducto(producto).decrementarStock();
+                    this.recaudacion += this.surtido.getProducto(producto).getPrecio();
+                    double devolucion = this.credito - this.surtido.getProducto(producto).getPrecio();
                     this.cambio -= devolucion;
                     this.credito = 0;
                     return devolucion;

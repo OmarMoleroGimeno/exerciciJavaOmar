@@ -1,35 +1,32 @@
 package UD06.Lectura_Escritura;
 
-import java.io.EOFException;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Ej09_EscribirFichero1 {
+public class Ej10_EscribirFichero2 {
     public static void main(String[] args) {
         Scanner tec = new Scanner(System.in);
-        try ( FileOutputStream fo = new FileOutputStream("nombres.log", true)) {
 
-            String nombre = tec.nextLine();
-            fo.write(nombre.getBytes());
+        try (FileWriter fr = new FileWriter("nombres.log")) {
             
+            String nombre = tec.nextLine();
+            fr.write(nombre);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
-        try (FileInputStream fi = new FileInputStream("nombres.log")) {
+
+        try (FileReader fr = new FileReader("nombres.log")) {
             int cont = 0;
-            while ((cont = fi.read()) != -1) {
+            while ((cont = fr.read()) != -1) {
                 System.out.print((char)cont);
             }
             
-        } catch (EOFException e) {
-            
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         tec.close();
     }
 }

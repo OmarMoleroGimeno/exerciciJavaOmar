@@ -23,8 +23,7 @@ public class Producto {
         return stock;
     }
 
-    
-
-    
-
+    public int decrementarStock(){
+        return this.stock--;
+    }
 }

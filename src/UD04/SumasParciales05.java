@@ -4,24 +4,32 @@ import java.util.Scanner;
 
 public class SumasParciales05 {
     
-    public static int[] sumaParcial(int[] v, int variable){
+    public static int[] sumaParcial(int[] v){
+        int cont = 0;
+        int [] sumaParcial = new int[v.length];
 
-        int i = variable;
-        int[] t=  new int[i];
-        int numeroActual = 1;
-
-        for (int j = 0; j < t.length; j++) {
-            
-            i++;
+        for (int i = 0; i < v.length; i++) {
+            cont += v[i];
+            sumaParcial[i] = cont;
         }
+        return sumaParcial;
     }
     public static void main(String[] args) {
         Scanner tec = new Scanner(System.in);
 
         System.out.print("Introduce la longitud de la array: ");
-        int variable = tec.nextInt();
+        int [] v = new int[tec.nextInt()];
 
-        SumasParciales05 array = new SumasParciales05();
+        for ( int i = 0; i < v.length; i++) {
+            System.out.print("Introduce el número de pa pos " + i + ": ");
+            v[i] = tec.nextInt();
+        }
+
+        int[] res = sumaParcial(v);
+
+        for (int i = 0; i < v.length; i++) {
+            System.out.println("v[" + i + "] = " + res[i]);
+        }
 
         tec.close();
     }
