@@ -10,7 +10,7 @@ public class LeerFicheroTexto {
         String str = "";
         try (BufferedReader br = new BufferedReader(new FileReader("EscribirTexto.txt"))) {
             
-            while ((str = br.readLine()) != null) {
+            while ((str = br.readLine()) != null ) {
                 System.out.println(str);
             }
         } catch (IOException e) {
