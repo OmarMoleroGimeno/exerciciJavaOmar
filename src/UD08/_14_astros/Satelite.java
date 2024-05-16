@@ -2,23 +2,23 @@ package UD08._14_astros;
 
 public class Satelite extends Astro{
 
-    private double getDistanciaAlPlaneta;
+    private double distanciaAlPlaneta;
     private double orbitaPlanetaria;
     
     public Satelite(String nombre, double masaDelCuerpo, double diametroMedio,
-            double rotacionPeriodo, double traslacionPeriodo, double getDistanciaAlPlaneta,
+            double rotacionPeriodo, double traslacionPeriodo, double distanciaAlPlaneta,
             double orbitaPlanetaria) {
         super(nombre, masaDelCuerpo, diametroMedio, rotacionPeriodo, traslacionPeriodo);
-        this.getDistanciaAlPlaneta = getDistanciaAlPlaneta;
+        this.distanciaAlPlaneta = distanciaAlPlaneta;
         this.orbitaPlanetaria = orbitaPlanetaria;
     }
 
-    public double getGetDistanciaAlPlaneta() {
-        return getDistanciaAlPlaneta;
+    public double getDistanciaAlPlaneta() {
+        return distanciaAlPlaneta;
     }
 
-    public void setGetDistanciaAlPlaneta(double getDistanciaAlPlaneta) {
-        this.getDistanciaAlPlaneta = getDistanciaAlPlaneta;
+    public void setDistanciaAlPlaneta(double distanciaAlPlaneta) {
+        this.distanciaAlPlaneta = distanciaAlPlaneta;
     }
 
     public double getOrbitaPlanetaria() {
@@ -31,7 +31,14 @@ public class Satelite extends Astro{
 
     @Override
     public void mostrarDatos() {
-        System.out.println("");
+        String str = "Nombre: " + this.getNombre() + 
+                     "\nMasa: " + this.getMasaDelCuerpo() +
+                     "\nDiametro: " + this.getDiametroMedio() +
+                     "\nPeriodo de rotación: " + getRotacionPeriodo() +
+                     "\nPeriodo de Translación: " + getRotacionPeriodo() +
+                     "\nDistancia al planeta: " + getDistanciaAlPlaneta() +
+                     "\nOrbita planetaria: " + getOrbitaPlanetaria();
+        System.out.println(str);
     }
     
 }

@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 public class Planeta extends Astro{
 
+    private double distanciaAlSol;
+    private double orbitaAlSol;
+    private ArrayList<Astro> satelites;
+
     public Planeta(String nombre, double masaDelCuerpo, double diametroMedio, double rotacionPeriodo,
                     double traslacionPeriodo, double distanciaAlSol, double orbitaAlSol) {
         super(nombre, masaDelCuerpo, diametroMedio, rotacionPeriodo, traslacionPeriodo);
         this.distanciaAlSol = distanciaAlSol;
         this.diametroMedio = diametroMedio;
     }
-
-    private double distanciaAlSol;
-    private double orbitaAlSol;
-    private ArrayList<Astro> satelites;
 
     public void setDistanciaAlSol(double distanciaAlSol) {
         this.distanciaAlSol = distanciaAlSol;
@@ -41,7 +41,14 @@ public class Planeta extends Astro{
     
     @Override
     public void mostrarDatos() {
-        System.out.println("");
+        String str = "Nombre: " + this.getNombre() + 
+                     "\nMasa: " + this.getMasaDelCuerpo() +
+                     "\nDiametro: " + this.getDiametroMedio() +
+                     "\nPeriodo de rotación: " + getRotacionPeriodo() +
+                     "\nPeriodo de Translación: " + getRotacionPeriodo() +
+                     "\nDistancia respecto al son: " + getDistanciaAlSol() +
+                     "\nDiametro: " + getDiametroMedio();
+        System.out.println(str);
     }
 
 }
