@@ -34,9 +34,7 @@ public class Libro implements Comparable<Libro>{
 
     @Override
     public String toString() {
-        return  String.format(" %-28%-30s%", "")"Título: " + getTitulo() +
-                " - Autor: " + getAutor() +
-                " - Estantería: " + getEstanteria();
+        return  String.format("Título: %-28% - Autor:-30s%  - Estantería:-30s%", getTitulo(), getAutor(), getEstanteria());
     }
 
 }

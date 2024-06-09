@@ -1,6 +1,6 @@
 package UD08._09_supermercado;
 
-public interface esLiquido{
+public interface esLiquido {
 
     public void setVolumen(double v);
     public double getVolumen();

@@ -5,6 +5,8 @@ public class Detergente implements conDescuento, esLiquido{
     private String marca;
     private double precio;
     private double precioDescuento;
+    private double volumen;
+    private String tipoDeEnvase;
     
     public Detergente(String marca, double precio) {
         this.marca = marca;
@@ -39,7 +41,27 @@ public class Detergente implements conDescuento, esLiquido{
 
     @Override
     public double getPrecioDescuento() {
-        return this.getPrecioDescuento();
+        return this.precioDescuento;
+    }
+
+    @Override
+    public void setVolumen(double v) {
+        this.volumen = v;
+    }
+
+    @Override
+    public double getVolumen() {
+        return this.volumen;
+    }
+
+    @Override
+    public void setTipoEnvase(String env) {
+        this.tipoDeEnvase = env;
+    }
+
+    @Override
+    public String getTipoEnvase() {
+        return this.tipoDeEnvase;
     }
 
     @Override
@@ -48,7 +70,9 @@ public class Detergente implements conDescuento, esLiquido{
                 "\nNombre " + this.getPrecio() +
                 "\nPrecio " + this.getPrecio() +
                 "\nPrecio descuento " + this.getPrecioDescuento() +
-                "\n" +;
+                "\nVolumen " + this.getVolumen() +
+                "\nTipo de envase " + this.getTipoEnvase() +
+                "\n";
     }
 
 }

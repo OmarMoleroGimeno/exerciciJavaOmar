@@ -41,7 +41,7 @@ public class Planeta extends Astro{
     
     @Override
     public void mostrarDatos() {
-        String str = "Nombre: " + this.getNombre() + 
+        String str = "Nombre: " + this.getNombre() +
                      "\nMasa: " + this.getMasaDelCuerpo() +
                      "\nDiametro: " + this.getDiametroMedio() +
                      "\nPeriodo de rotación: " + getRotacionPeriodo() +

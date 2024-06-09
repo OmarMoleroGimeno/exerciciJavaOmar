@@ -1,4 +1,4 @@
-package UD07.actividades.gestionpacientes;
+package UD07.actividades.actividad04;
 
 public class Paciente implements Comparable<Paciente>{
 

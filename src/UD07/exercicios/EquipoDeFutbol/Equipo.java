@@ -46,7 +46,7 @@ public class Equipo{
 
     static class posicionesMaximaException extends Exception{
         public posicionesMaximaException(Futbolista j){
-            super(j.getNombre() + " no se puede añadir ya que la lista ha llegado a su maximo de " + j.getPosicion().getNombrePos());
+            super(j.getNombre() + " no se puede añadir ya que la lista ha llegado a su maximo de " + j.getPosicion().getNombrePosicion());
         }
     }
     

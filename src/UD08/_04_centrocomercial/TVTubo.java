@@ -13,11 +13,4 @@ public class TVTubo extends Televisor{
     public String resolucion() {
         return String.valueOf(lineas);
     }
-
-    @Override
-    public String toString() {
-        
-    }
-
-    
 }
