@@ -1,6 +1,11 @@
 package UD09._03_GestionAlumnos;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import UD09.DbConection;
 
 public class GestionarAlumnos {
 
@@ -13,11 +18,11 @@ public class GestionarAlumnos {
     }
 
     public static void main(String[] args) throws SQLException{
-        try(Connection con = DbConection.getInstance().getConnection();
-            Statement st = con.createStatement()){
-            
+        try (Connection con = DbConection.getInstance().getConnection();
+            Statement st = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY)) {
+
             ResultSet rs = st.executeQuery("SELECT * FROM alumnos ORDER BY edad");
-            
+
             if (rs.first()) {
                 System.out.println("Alumno más joven:");
                 mostrarAlumno(rs);
