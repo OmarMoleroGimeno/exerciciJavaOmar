@@ -1,6 +1,6 @@
 package UD08._09_supermercado;
 
-public class Detergente implements conDescuento, esLiquido{
+public class Detergente implements esLiquido, conDescuento{
 
     private String marca;
     private double precio;
